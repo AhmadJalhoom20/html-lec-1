@@ -1,0 +1,53 @@
+body{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.rainbow {
+    animation: example infinite 1s;
+}
+div{
+border: 1px solid black;
+width: 500px;
+height: 500px;
+margin: 0 auto;
+justify-content: center;
+align-items: center;
+display: flex;
+flex-direction: column;
+gap: 20px;
+border-radius: 25px;
+}
+button{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 24px;
+    font-weight: 800;
+    padding: 10px 20px;
+    transition: 0.3s all;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+
+
+button:hover{
+    background-color: rgba(255, 0, 0, 0.498);
+    color: white;
+}
+@keyframes example {
+    0%   {background-color: red;}
+    25%   {background-color:rgba(42, 185, 75, 0.498);}
+    50%   {background-color:rgba(16, 31, 243, 0.498);}
+    75%   {background-color:rgb(88, 5, 130);}
+    100% {background-color: yellow;}
+}
+
+h1,p, h2, h3, h4, h5, h6{
+    font-family: monospace;
+    align-items: center;
+    color: rgb(0, 0, 0);
+    text-shadow: 2px 2px 4px rgb(90, 255, 109);
+    display: block;
+    border-bottom: 1px solid rgb(236, 11, 11);
+}
