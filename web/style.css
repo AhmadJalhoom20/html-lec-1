@@ -81,3 +81,9 @@ a:hover{
 a:active{
     rotate: 10deg;
 }
+
+.links{
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+}
