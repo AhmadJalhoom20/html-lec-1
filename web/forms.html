@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif, Helvetica, sans-serif;
+            text-align: center;
+        }
+
+        form{
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin: 0 auto;
+            max-width: 400px;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        input{
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        input:hover{
+            border-color: #aaa; 
+        }
+        input:active{
+            border-color: #555; 
+        }
+            textarea{
+                padding: 10px;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+            }
+
+            select{
+                padding: 10px;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+            }
+
+            select:hover, textarea:hover{
+                border-color: #aaa; 
+            }
+            select:active, textarea:active{
+                border-color: #555; 
+            }
+
+            input[type="file"]{
+                text-align: center;
+                padding: 10px;
+                border-radius: 5px;
+                background-color: #f9f9f9;
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+
+            input[type="submit"]{
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+            input[type="submit"]:disabled{
+                background-color: #ffd2d1;
+                color: black;
+            }
+
+            input[type="submit"]:not(:disabled):hover{
+                background-color: #45a049;
+            }
+    </style>
+</head>
+
+<body>
+
+<form action="">
+    <h1>عرف حالك يسطا 😎</h1>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name"><br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" name="email" id="email">
+
+<br>
+
+    <label for="phone">Phone:</label>
+    <input type="tel" id="phone" name="phone"><br>
+
+<br>
+    <label for="file">File:</label>
+    <input type="file" name="file" id="file">
+<br>
+
+<br>
+<select name="edu" id="edu">
+    <option selected disabled value="Choose">Choose Edu</option>
+    <option value="uni">بقرا فجامعة</option>
+    <option value="sco">فمدرسة</option>
+    <option value="no"> مخلص او لا ادرش</option>
+</select>
+
+<label for="bio">Bio:</label>
+<textarea name="bio" id="bio"></textarea>
+
+<br>
+
+<select name="gender" id="gender">
+    <option selected disabled value="Choose">Choose Gender</option>
+    <option value="male">Male</option>
+    <option value="female">Female</option>
+    <option value="استغفر الله">استغفر الله</option>
+</select>
+
+    <input disabled type="submit" value="Submit">
+</form>
+
+<script>
+    const form = document.querySelector('form');
+    const submitButton = form.querySelector('input[type="submit"]');
+    const inputs = form.querySelectorAll('input, textarea, select');
+
+    inputs.forEach(input => {
+        input.addEventListener('input', () => {
+            let allFilled = true;
+            inputs.forEach(i => {
+                if (!i.value) allFilled = false;
+            });
+            submitButton.disabled = !allFilled;
+        });
+    });
+</script>
+    
+</body>
+</html>
