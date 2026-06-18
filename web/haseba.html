@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        div{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        input, select, button{
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button{
+            background-color: #fcbaba;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+        button:hover{
+            background-color: transparent;
+            color: #fcbaba;
+            border: #fcbaba solid 1px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1 id="result">The result is :</h1>
+        <input type="number" id="inp1" placeholder="Number 1" required>
+        <input type="number" id="inp2" placeholder="Number 2" required>
+        
+        <select name="operation" id="operation">
+            <option disabled selected value="">Select Operation</option>
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+        
+        <button>Calculate</button>
+    </div>
+
+    <script>
+        const inp1 = document.getElementById('inp1');
+        const inp2 = document.getElementById('inp2');
+        const operation = document.getElementById('operation');
+        const button = document.querySelector('button');
+
+        button.addEventListener('click', () => {
+            const num1 = parseFloat(inp1.value);
+            const num2 = parseFloat(inp2.value);
+            const op = operation.value;
+
+            if (!op) {
+                alert("وين رايح تروح？ اختار عملية يا عم!");
+                return;
+            }
+
+            if (isNaN(num1) || isNaN(num2)) {
+                document.getElementById('result').textContent = "اكتب حاجة يعم الحقول فاضية!";
+                return;
+            }
+
+            let result;
+
+            switch (op) {
+                case '+':
+                    result = num1 + num2;
+                    break;
+                case '-':
+                    result = num1 - num2;
+                    break;
+                case '*':
+                    result = num1 * num2;
+                    break;
+                case '/':
+                    if (num2 !== 0) {
+                        result = num1 / num2;
+                    } else {
+                        alert("بتعرفش تقسم على صفر يا عم؟");
+                        return;
+                    }
+                    break;
+            }
+
+            document.getElementById('result').textContent = `The result is: ${result}`;
+        });
+    </script>
+</body>
+</html>

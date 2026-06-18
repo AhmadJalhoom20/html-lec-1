@@ -1,1 +1,0 @@
-onclick="document.body.classList.toggle('rainbow')"
